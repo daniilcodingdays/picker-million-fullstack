@@ -22,11 +22,11 @@ const app = createApp({
   selection: new SelectionService(catalog, selection, scheduler),
 })
 
-app.get(/^(?!\/api).*$/, (_, res) => {
+app.use(express.static(frontendDist))
+
+app.get(/^(?!\/api).*\$/, (_, res) => {
   res.sendFile(path.join(frontendDist, 'index.html'))
 })
-
-app.use(express.static(frontendDist))
 
 scheduler.start()
 const server = app.listen(CONFIG.port, (error) => {

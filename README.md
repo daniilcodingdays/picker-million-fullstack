@@ -6,6 +6,8 @@
 
 ![Скриншот приложения](./app.png)
 
+Протестировать приложение на [Render](https://picker-million-fullstack.onrender.com/).
+
 ## Быстрый старт
 
 Нужны Node.js ≥ 24.12 и pnpm 12 (версия закреплена в `packageManager`).

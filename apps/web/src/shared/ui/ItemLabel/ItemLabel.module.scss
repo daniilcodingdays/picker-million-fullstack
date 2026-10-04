@@ -1,0 +1,4 @@
+.label::before {
+  content: '#';
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,17 @@
+.row {
+  height: 100%;
+}
+
+.placeholder {
+  opacity: var(--opacity-muted);
+}
+
+.handle {
+  cursor: grab;
+  touch-action: none;
+}
+
+.overlay {
+  box-shadow: var(--shadow-lg);
+  cursor: grabbing;
+}

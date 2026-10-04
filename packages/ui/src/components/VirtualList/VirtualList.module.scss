@@ -1,0 +1,18 @@
+.viewport {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  contain: strict;
+}
+
+.canvas {
+  position: relative;
+}
+
+.row {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  padding-inline: var(--space-2);
+}

@@ -1,0 +1,65 @@
+@use '@picker/ui/media';
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100dvh;
+  max-width: var(--layout-max-width);
+  margin-inline: auto;
+  padding: var(--space-4);
+
+  @include media.up(lg) {
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-8);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.switcher {
+  @include media.up(md) {
+    display: none;
+  }
+}
+
+.panels {
+  display: grid;
+  flex: 1;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  min-height: 0;
+  max-height: var(--layout-max-height);
+
+  @include media.up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include media.up(lg) {
+    gap: var(--space-6);
+  }
+}
+
+.panels[data-active='selected'] .available,
+.panels[data-active='available'] .selected {
+  display: none;
+
+  @include media.up(md) {
+    display: flex;
+  }
+}

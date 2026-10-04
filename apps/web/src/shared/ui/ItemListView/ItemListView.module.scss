@@ -1,0 +1,33 @@
+.list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+
+  &[inert] {
+    opacity: var(--opacity-muted);
+  }
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 100%;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.skeletonRow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding-inline: calc(var(--space-2) + var(--space-3));
+}
+
+.skeletonBar {
+  width: 7ch;
+  height: var(--font-size-md);
+}

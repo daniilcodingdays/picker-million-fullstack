@@ -1,0 +1,71 @@
+:root {
+  // Цвета
+  --color-canvas: #f4f4f5;
+  --color-surface: #fff;
+  --color-surface-hover: #f4f4f5;
+  --color-border: #e4e4e7;
+  --color-border-strong: #d4d4d8;
+  --color-text: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #a1a1aa;
+  --color-accent: #4f46e5;
+  --color-accent-hover: #4338ca;
+  --color-accent-subtle: #eef2ff;
+  --color-on-accent: #fff;
+  --color-danger: #dc2626;
+  --color-danger-subtle: #fef2f2;
+
+  // Типографика
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  // Отступы
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  // Размеры
+  --size-control-sm: 32px;
+  --size-control-md: 40px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 20px;
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  // Скругления
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  // Тени
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--color-text) 6%, transparent);
+  --shadow-lg: 0 12px 32px -8px color-mix(in srgb, var(--color-text) 24%, transparent);
+  --ring-focus: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+
+  // Анимация
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-spin: 800ms;
+  --duration-pulse: 1600ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  // Состояния
+  --opacity-muted: 0.5;
+
+  // Лейаут
+  --layout-max-width: 1200px;
+  --layout-max-height: 800px;
+}

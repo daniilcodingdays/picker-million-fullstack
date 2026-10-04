@@ -1,0 +1,21 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--space-6);
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.neutral {
+  background: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+}
+
+.accent {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}

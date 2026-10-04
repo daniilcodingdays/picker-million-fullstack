@@ -1,6 +1,3 @@
-import path from 'path'
-import express from 'express'
-import { fileURLToPath } from 'url'
 import { CatalogService } from './application/catalog-service.ts'
 import { RequestScheduler } from './application/scheduler.ts'
 import { SelectionService } from './application/selection-service.ts'
@@ -9,10 +6,6 @@ import { Catalog } from './domain/catalog.ts'
 import { Selection } from './domain/selection.ts'
 import { createApp } from './interfaces/http/app.ts'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const frontendDist = path.join(__dirname, '../../web/dist')
-
 const catalog = new Catalog(CONFIG.seedSize)
 const selection = new Selection()
 const scheduler = new RequestScheduler(CONFIG.batching)
@@ -20,12 +13,6 @@ const scheduler = new RequestScheduler(CONFIG.batching)
 const app = createApp({
   catalog: new CatalogService(catalog, selection, scheduler),
   selection: new SelectionService(catalog, selection, scheduler),
-})
-
-app.use(express.static(frontendDist))
-
-app.get(/^(?!\/api).*\$/, (_, res) => {
-  res.sendFile(path.join(frontendDist, 'index.html'))
 })
 
 scheduler.start()

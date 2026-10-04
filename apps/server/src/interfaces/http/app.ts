@@ -1,3 +1,5 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
 import { RESOURCE_NAME } from '@picker/contracts'
 import express, { type Express, Router } from 'express'
 import type { CatalogService } from '../../application/catalog-service.ts'
@@ -5,6 +7,10 @@ import type { SelectionService } from '../../application/selection-service.ts'
 import { catalogRouter } from './catalog-router.ts'
 import { errorHandler, notFound } from './error-handler.ts'
 import { selectionRouter } from './selection-router.ts'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const frontendDist = path.join(__dirname, '../../../../web/dist')
 
 export interface Services {
   catalog: CatalogService
@@ -18,10 +24,16 @@ function createApiRouter({ catalog, selection }: Services): Router {
 }
 
 export function createApp(services: Services): Express {
-  return express()
-    .disable('x-powered-by')
-    .use(express.json({ limit: '1kb' }))
-    .use('/api', createApiRouter(services))
-    .use(notFound)
-    .use(errorHandler)
+  return (
+    express()
+      .disable('x-powered-by')
+      .use(express.json({ limit: '1kb' }))
+      .use('/api', createApiRouter(services))
+      .use(express.static(frontendDist))
+      .get(/^(?!\/api).*$/, (_, res) => {
+        res.sendFile(path.join(frontendDist, 'index.html'))
+      })
+      .use(notFound)
+      .use(errorHandler)
+  )
 }
